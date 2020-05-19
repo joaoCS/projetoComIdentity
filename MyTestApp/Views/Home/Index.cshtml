@@ -1,0 +1,19 @@
+﻿@model List<MyTestApp.Models.Post>
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<div>
+    <a asp-controller="Account" asp-action="Register">Register</a>
+</div>
+
+@foreach (var post in Model)
+{
+    <h3>@post.Titulo</h3>
+    <p>@post.Texto</p>
+}
