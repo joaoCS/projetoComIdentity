@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using MyTestApp.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Identity;
 
 namespace MyTestApp
 {
@@ -26,8 +27,11 @@ namespace MyTestApp
         {
             services.AddIdentity<AppUser, AppRole>(options => {
                 options.User.RequireUniqueEmail = true;
+            })
+             .AddEntityFrameworkStores<IdentityAppContext>()
+             .AddDefaultTokenProviders();
 
-            }).AddEntityFrameworkStores<IdentityAppContext>();
+
             services.AddControllersWithViews();
 
             services.AddDbContext<IdentityAppContext>(cfg => {

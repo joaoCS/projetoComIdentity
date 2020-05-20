@@ -2,8 +2,10 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Logging;
 using MyTestApp.Models;
 
 namespace MyTestApp.Controllers
@@ -12,10 +14,12 @@ namespace MyTestApp.Controllers
     {
         private UserManager<AppUser> UserMgr { get; }
         private SignInManager<AppUser> SignInMgr { get; }
-        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        private readonly ILogger<AccountController> logger;
+        public AccountController(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, ILogger<AccountController> logger)
         {
             UserMgr = userManager;
             SignInMgr = signInManager;
+            this.logger = logger; 
         }
 
         public async Task<IActionResult> Logout()
@@ -24,9 +28,17 @@ namespace MyTestApp.Controllers
 
             return RedirectToAction("Index", "Home");
         }
-        public async Task<IActionResult> Login()
+
+        [HttpGet]
+        public IActionResult Login()
         {
-            var result = await SignInMgr.PasswordSignInAsync("TestUser", "Test123!", false, false);
+            return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(string username, string password)
+        {
+            var result = await SignInMgr.PasswordSignInAsync(username, password, false, false);
             if (result.Succeeded)
             {
                 return RedirectToAction("Index", "Home");
@@ -67,5 +79,43 @@ namespace MyTestApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ForgotPassword ()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ForgotPassword(ForgotPasswordViewModel model)
+        {
+            if (ModelState.IsValid)
+            {
+                var user = await UserMgr.FindByEmailAsync(model.Email);
+             
+                if (user != null && await UserMgr.IsEmailConfirmedAsync(user))
+                {
+
+                    var token = await UserMgr.GeneratePasswordResetTokenAsync(user);
+
+                    var passwordResetLink = Url.Action("ResetPassword", "Account",
+                            new { email = model.Email, token = token }, Request.Scheme);
+
+                    Console.WriteLine(passwordResetLink.ToString());
+
+                    logger.Log(LogLevel.Warning, passwordResetLink);
+
+                    return View("ForgotPasswordConfirmation");
+                }
+
+                Console.WriteLine("Eu não entrei no if");
+
+
+                return View("ForgotPasswordConfirmation");
+            }
+
+            return View(model);
+        }
     }
 }

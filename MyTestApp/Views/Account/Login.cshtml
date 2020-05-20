@@ -5,5 +5,15 @@
 
 <h1>Login</h1>
 <div>
-    @ViewBag.Result
+
+    <form method="post" asp-controller="Account" asp-action="Login">
+        <input type="text" name="username" value="" class="form-control" />
+        <input type="password" name="password" value="" class="form-control" />
+        <button type="submit" class="btn btn-primary">Enviar</button>
+    </form>
+
+    <div>
+        <a asp-action="ForgotPassword">Forgot Password?</a>
+    </div>
+
 </div>
