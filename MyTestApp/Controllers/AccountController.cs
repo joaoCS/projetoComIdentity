@@ -22,6 +22,51 @@ namespace MyTestApp.Controllers
             this.logger = logger; 
         }
 
+        [HttpGet]
+        [AllowAnonymous]
+        public IActionResult ResetPassword(string token, string email)
+        {
+            // If password reset token or email is null, most likely the
+            // user tried to tamper the password reset link
+            if (token == null || email == null)
+            {
+                ModelState.AddModelError("", "Invalid password reset token");
+            }
+            return View();
+        }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<IActionResult> ResetPassword(ResetPasswordViewModel model)
+        {
+            Console.WriteLine(model.Email);
+            Console.WriteLine(model.Token);
+
+            if (ModelState.IsValid)
+            {
+                var user = await UserMgr.FindByEmailAsync(model.Email);
+
+                if (user != null)
+                {
+                    var result = await UserMgr.ResetPasswordAsync(user, model.Token, model.Password);
+                    if (result.Succeeded)
+                    {
+                        return View("ResetPasswordConfirmation");
+                    }
+                    
+                    foreach (var error in result.Errors)
+                    {
+                        ModelState.AddModelError("", error.Description);
+                    }
+                    return View(model);
+                }
+
+                return View("ResetPasswordConfirmation");
+            }
+            
+            return View(model);
+        }
+
         public async Task<IActionResult> Logout()
         {
             await SignInMgr.SignOutAsync();
@@ -101,8 +146,6 @@ namespace MyTestApp.Controllers
 
                     var passwordResetLink = Url.Action("ResetPassword", "Account",
                             new { email = model.Email, token = token }, Request.Scheme);
-
-                    Console.WriteLine(passwordResetLink.ToString());
 
                     logger.Log(LogLevel.Warning, passwordResetLink);
 

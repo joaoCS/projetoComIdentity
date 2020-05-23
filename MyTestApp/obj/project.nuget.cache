@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "SVYqxYFamPEhuKrIVigsoHBxY6tJ5Re0PlxjTqekRGaFYuQq3KWOoi0Ke1hugBAgtJP+gz6HT+zThUx3BhLO5w==",
+  "dgSpecHash": "hrQ5Ryqvv3fLjsg6zHWzCwed9zvTHt228OLtxW0UL0LNuWgw4ToORzi/3dhdYH+tq3cc4W6YZEBM6ZuBVxXTyw==",
   "success": true,
   "projectFilePath": "C:\\Users\\joaoa\\source\\repos\\MyTestApp\\MyTestApp\\MyTestApp.csproj",
   "expectedPackageFiles": [
@@ -161,7 +161,9 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.readerwriter\\4.3.0\\system.xml.readerwriter.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmldocument\\4.3.0\\system.xml.xmldocument.4.3.0.nupkg.sha512",
-    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512"
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder\\system.xml.xmlserializer\\4.3.0\\system.xml.xmlserializer.4.3.0.nupkg.sha512",
+    "C:\\Users\\joaoa\\.nuget\\packages\\xunit.abstractions\\2.0.3\\xunit.abstractions.2.0.3.nupkg.sha512",
+    "C:\\Users\\joaoa\\.nuget\\packages\\xunit.extensibility.core\\2.4.1\\xunit.extensibility.core.2.4.1.nupkg.sha512"
   ],
   "logs": []
 }

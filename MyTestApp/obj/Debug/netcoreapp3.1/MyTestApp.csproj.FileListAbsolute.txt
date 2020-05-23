@@ -142,9 +142,13 @@ C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\ru\Micro
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\tr\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\zh-Hans\Microsoft.CodeAnalysis.Workspaces.resources.dll
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\zh-Hant\Microsoft.CodeAnalysis.Workspaces.resources.dll
-C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestApp.csproj.CoreCompileInputs.cache
-C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Register.cshtml.g.cs
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Login.cshtml.g.cs
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPassword.cshtml.g.cs
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ForgotPasswordConfirmation.cshtml.g.cs
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\xunit.abstractions.dll
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\bin\Debug\netcoreapp3.1\xunit.core.dll
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestApp.csproj.CoreCompileInputs.cache
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestApp.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
