@@ -1,12 +1,29 @@
-﻿
+﻿@model MyTestApp.Models.RegisterViewModel
+
 @{
-    ViewData["Title"] = "Register";
+    ViewData["Title"] = "Registro";
 }
 
-<h1>Register</h1>
+<h1>Registro</h1>
 
-<p>@ViewBag.Message</p>
 
-<div>
-    <a asp-controller="Account" asp-action="Login">Login</a>
+
+<div class="row">
+    <form method="post" asp-controller="Account" asp-action="Register" class="card p-3 col-4">
+        
+        <div asp-validation-summary="All" class="text-danger"></div>
+        
+        <label >Nome de usuário:</label>
+        <input asp-for="@Model.UserName" class="form-control"/>
+        <label>Email:</label>
+        <input asp-for="@Model.Email" class="form-control"/>
+        <label>Nome:</label>
+        <input asp-for="@Model.FirstName" class="form-control"/>
+        <label>Sobrenome:</label>
+        <input asp-for="@Model.LastName" class="form-control"/>
+        <label>Senha:</label>
+        <input asp-for="@Model.Password" type="password" class="form-control"/>
+
+        <button type="submit" class="btn btn-primary mt-3">Registrar</button>
+    </form>
 </div>

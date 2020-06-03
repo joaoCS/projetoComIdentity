@@ -152,3 +152,6 @@ C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestAp
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\MyTestApp.MvcApplicationPartsAssemblyInfo.cache
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPassword.cshtml.g.cs
 C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ResetPasswordConfirmation.cshtml.g.cs
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\ConfirmEmail.cshtml.g.cs
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Error.cshtml.g.cs
+C:\Users\joaoa\source\repos\MyTestApp\MyTestApp\obj\Debug\netcoreapp3.1\Razor\Views\Account\Messages.cshtml.g.cs
