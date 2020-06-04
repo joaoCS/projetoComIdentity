@@ -8,8 +8,15 @@
 
     <div class="row">
         <form method="post" asp-controller="Account" asp-action="Login" class="col-md-4">
+
+            <div asp-validation-summary="All" class="text-danger"></div>
+
+            <label for="username">Nome de usuário</label>
             <input type="text" name="username" value="" class="form-control" />
+
+            <label for="password">Senha</label>
             <input type="password" name="password" value="" class="form-control" />
+
             <button type="submit" class="btn btn-primary">Enviar</button>
         </form>
     </div>

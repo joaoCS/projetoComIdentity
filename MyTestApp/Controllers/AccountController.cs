@@ -80,18 +80,45 @@ namespace MyTestApp.Controllers
             return View();
         }
 
+        //[HttpPost]
+        //public async Task<IActionResult> Login(string username, string password)
+        //{
+        //    var result = await SignInMgr.PasswordSignInAsync(username, password, false, false);
+        //    if (result.Succeeded)
+        //    {
+        //        return RedirectToAction("Index", "Home");
+        //    }
+        //    else
+        //    {
+        //        ViewBag.Result = "result is: " + result.ToString();
+        //    }
+        //    return View();
+        //}
+
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Login(string username, string password)
-        {
-            var result = await SignInMgr.PasswordSignInAsync(username, password, false, false);
-            if (result.Succeeded)
+        {   
+            if (ModelState.IsValid)
             {
-                return RedirectToAction("Index", "Home");
+                var user = await UserMgr.FindByNameAsync(username);
+
+                if (user != null && !user.EmailConfirmed &&
+                            (await UserMgr.CheckPasswordAsync(user, password)))
+                {
+                    ModelState.AddModelError(string.Empty, "Email ainda não confirmado");
+                    return View();
+                }
+
+                var result = await SignInMgr.PasswordSignInAsync(username,
+                                        password, false, false);
+
+                if (result.Succeeded)    
+                    return RedirectToAction("index", "home");
+                
+                ModelState.AddModelError(string.Empty, "Invalid Login Attempt");
             }
-            else
-            {
-                ViewBag.Result = "result is: " + result.ToString();
-            }
+
             return View();
         }
 
